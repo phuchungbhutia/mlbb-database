@@ -1,389 +1,110 @@
-# Windows + VSCodium Complete Setup & Deployment Guide
+# Windows + VSCodium Development & Deployment Guide
 
-This guide walks you through the end-to-end process of setting up, validating, running locally, and deploying the **MLBB Database & Documentation Blog** using **Windows**, **PowerShell**, and **VSCodium**.
+This guide details setting up, maintaining, and deploying the MLBB Database on Windows 10/11 using PowerShell and VSCodium.
 
 ---
 
-## 1. Prerequisites Installation
+## 1. System Prerequisites
 
-Open **PowerShell as Administrator** (`Win + X` $\rightarrow$ select **Terminal (Admin)** or **Windows PowerShell (Admin)**) and run:
-
-```powershell
-winget install --id Git.Git -e
-winget install --id OpenJS.NodeJS.LTS -e
-winget install --id GitHub.cli -e
-```
-
-> **Note:** Close and reopen your terminal after installation so path variables refresh.
-
-Verify each tool:
+Install the required developer toolchain using the Windows Package Manager (`winget`):
 
 ```powershell
-git --version
-node -v
-npm -v
-gh --version
+# Run in PowerShell as Administrator
+winget install --id Git.Git -e --source winget
+winget install --id OpenJS.NodeJS.LTS -e --source winget
+winget install --id GitHub.cli -e --source winget
+
 ```
+
+Close and reopen PowerShell to refresh your system `PATH`.
 
 ---
 
 ## 2. GitHub CLI Authentication
 
-Link your local machine to your GitHub account:
+Authenticate the GitHub CLI (`gh`) to authorize repository cloning, API management, and workflow triggers:
 
 ```powershell
 gh auth login
 
 ```
 
-Follow the prompts:
-
-1. **What account do you want to log into?** $\rightarrow$ `GitHub.com`
-2. **What is your preferred protocol for Git operations?** $\rightarrow$ `HTTPS`
-3. **Authenticate Git with your GitHub credentials?** $\rightarrow$ `Yes`
-4. **How would you like to authenticate GitHub CLI?** $\rightarrow$ `Login with a web browser`
-5. Press `Enter` to open your browser, and enter the one-time 8-character code shown in your console.
+* **Account:** GitHub.com
+* **Preferred protocol:** HTTPS
+* **Authenticate Git with your GitHub credentials:** Yes
+* **Authentication method:** Login with a web browser
 
 ---
 
-## 3. Directory Setup & VSCodium Launch
-
-Navigate to your working folder (e.g., `Documents`) and create your project workspace:
+## 3. Clone and Initialize Project
 
 ```powershell
-cd "$HOME\Documents"
-mkdir mlbb-database
+# Clone the repository
+git clone [https://github.com/phuchungbhutia/mlbb-database.git](https://github.com/phuchungbhutia/mlbb-database.git)
 cd mlbb-database
-codium .
 
-```
+# Verify branch pointer is on main
+git branch -M main
 
-*In VSCodium, press **`Ctrl + ``** (backtick) to open the integrated terminal. Run all subsequent commands inside this terminal.*
-
----
-
-## 4. Scaffold Repository Structure
-
-Execute this script in your VSCodium terminal to create all folders and files:
-
-```powershell
-New-Item -ItemType Directory -Force -Path ".github/workflows", "scripts", "data", "docs/.vitepress"
-New-Item -ItemType File -Force -Path "MLBB_Hero_Database.md", "MLBB_Game_Data.md", "package.json", ".gitignore", "LICENSE", "README.md", "scripts/parse-markdown.mjs", "scripts/validate-data.mjs", ".github/workflows/deploy-pages.yml", "docs/.vitepress/config.mjs", "docs/index.md", "docs/explorer.md"
+# Install npm dependencies and generate lockfile
+npm install
 
 ```
 
 ---
 
-## 5. File Configurations
+## 4. Operational Scripts & Automation
 
-### `package.json`
-
-```json
-{
-  "name": "mlbb-database",
-  "version": "1.0.0",
-  "description": "Structured MLBB Hero and Game Mechanics Markdown Database",
-  "type": "module",
-  "scripts": {
-    "parse": "node scripts/parse-markdown.mjs",
-    "test": "node scripts/validate-data.mjs",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
-  },
-  "devDependencies": {
-    "vitepress": "^1.0.0"
-  },
-  "license": "MIT"
-}
-
-```
-
-### `.gitignore`
-
-```text
-node_modules/
-.DS_Store
-*.log
-dist/
-docs/.vitepress/dist
-docs/.vitepress/cache
-
-```
-
-### `scripts/parse-markdown.mjs`
-
-```javascript
-import fs from 'node:fs';
-import path from 'node:path';
-
-const OUT_DIR = './data';
-if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
-
-function parseMarkdownTable(markdown, headerMatch) {
-  const lines = markdown.split('\n');
-  const startIndex = lines.findIndex(line => line.includes(headerMatch));
-  if (startIndex === -1) return [];
-
-  let tableStart = -1;
-  for (let i = startIndex; i < lines.length; i++) {
-    if (lines[i].trim().startsWith('|')) {
-      tableStart = i;
-      break;
-    }
-  }
-  if (tableStart === -1) return [];
-
-  const headers = lines[tableStart]
-    .split('|')
-    .map(c => c.trim())
-    .filter(c => c.length > 0);
-
-  const rows = [];
-  for (let i = tableStart + 2; i < lines.length; i++) {
-    const line = lines[i].trim();
-    if (!line.startsWith('|')) break;
-
-    const cells = line
-      .split('|')
-      .map(c => c.trim())
-      .filter((_, idx, arr) => idx > 0 && idx < arr.length - 1);
-
-    if (cells.length === headers.length) {
-      const entry = {};
-      headers.forEach((h, idx) => {
-        entry[h] = cells[idx].replace(/`/g, '');
-      });
-      rows.push(entry);
-    }
-  }
-  return rows;
-}
-
-const heroMd = fs.readFileSync('MLBB_Hero_Database.md', 'utf-8');
-const heroes = parseMarkdownTable(heroMd, '## Hero Master Index');
-fs.writeFileSync(path.join(OUT_DIR, 'heroes.json'), JSON.stringify(heroes, null, 2));
-
-const gameMd = fs.readFileSync('MLBB_Game_Data.md', 'utf-8');
-const physicalItems = parseMarkdownTable(gameMd, '### Physical Attack Equipment');
-const magicItems = parseMarkdownTable(gameMd, '### Magic Equipment');
-const defenseItems = parseMarkdownTable(gameMd, '### Defense Equipment');
-const allEquipment = [...physicalItems, ...magicItems, ...defenseItems];
-fs.writeFileSync(path.join(OUT_DIR, 'equipment.json'), JSON.stringify(allEquipment, null, 2));
-
-const emblems = parseMarkdownTable(gameMd, '## Emblem System Database');
-fs.writeFileSync(path.join(OUT_DIR, 'emblems.json'), JSON.stringify(emblems, null, 2));
-
-const spells = parseMarkdownTable(gameMd, '## Battle Spell Database');
-fs.writeFileSync(path.join(OUT_DIR, 'spells.json'), JSON.stringify(spells, null, 2));
-
-console.log(`✔ Successfully generated JSON records in ${OUT_DIR}/`);
-
-```
-
-### `scripts/validate-data.mjs`
-
-```javascript
-import fs from 'node:fs';
-
-let errors = 0;
-
-function assert(condition, message) {
-  if (!condition) {
-    console.error(`❌ Validation Failure: ${message}`);
-    errors++;
-  }
-}
-
-const heroes = JSON.parse(fs.readFileSync('data/heroes.json', 'utf-8'));
-assert(heroes.length > 0, 'heroes.json must contain at least 1 hero');
-heroes.forEach(h => {
-  assert(h.ID && h.ID.length > 0, `Hero ${h.Hero} is missing a deterministic ID`);
-  assert(h['Primary Role'], `Hero ${h.Hero} missing Primary Role`);
-});
-
-const equipment = JSON.parse(fs.readFileSync('data/equipment.json', 'utf-8'));
-assert(equipment.length > 0, 'equipment.json must not be empty');
-equipment.forEach(item => {
-  assert(item.ID && item.ID.startsWith('item_'), `Item ${item.Equipment} has invalid ID prefix`);
-});
-
-if (errors > 0) {
-  console.error(`\nFound ${errors} validation errors.`);
-  process.exit(1);
-} else {
-  console.log('✔ All entity tests passed successfully.');
-}
-
-```
-
-### `docs/.vitepress/config.mjs`
-
-```javascript
-import { defineConfig } from 'vitepress'
-
-export default defineConfig({
-  title: "MLBB Meta & Mechanics Database",
-  description: "Patch 2.1.95a Live Hero Builds, Equipment Synergies, and Draft Analytics",
-  base: "/mlbb-database/",
-  themeConfig: {
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Hero Profiles', link: '/heroes' },
-      { text: 'Equipment & Mechanics', link: '/game-data' },
-      { text: 'Interactive Explorer', link: '/explorer' }
-    ],
-    sidebar: [
-      {
-        text: 'Database Archives',
-        items: [
-          { text: 'Hero Profiles & Builds', link: '/heroes' },
-          { text: 'Equipment & Mechanics', link: '/game-data' },
-          { text: 'Interactive Explorer', link: '/explorer' }
-        ]
-      }
-    ],
-    search: {
-      provider: 'local'
-    },
-    socialLinks: [
-      { icon: 'github', link: '[https://github.com/phuchungbhutia/mlbb-database](https://github.com/phuchungbhutia/mlbb-database)' }
-    ]
-  }
-})
-
-```
+| Command                                  | Action                                                                                      |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `node scripts/populate-all-heroes.mjs` | Populates the master markdown database with 100+ heroes and full builds.                    |
+| `npm run parse`                        | Extracts markdown tables into`data/heroes.json`, `equipment.json`, etc.                 |
+| `npm test`                             | Runs deterministic schema validation against the generated JSON files.                      |
+| `npm run docs:dev`                     | Launches the local VitePress development server at`http://localhost:5173/mlbb-database/`. |
+| `npm run docs:build`                   | Compiles static production assets to`docs/.vitepress/dist`.                               |
 
 ---
 
-## 6. Copy Markdown Docs & Install VitePress
+## 5. Routine Database Synchronization Workflow
 
-Copy your primary markdown files into `docs/` so VitePress compiles them:
-
-```powershell
-Copy-Item "MLBB_Hero_Database.md" "docs/heroes.md"
-Copy-Item "MLBB_Game_Data.md" "docs/game-data.md"
-
-```
-
-Install VitePress as a developer dependency:
+When adding new heroes, modifying builds, or updating patch data, run this standard sequence:
 
 ```powershell
-npm install -D vitepress
-
-```
-
----
-
-## 7. Local Testing & Verification
-
-Run the data parsing and validation engine:
-
-```powershell
+# 1. Regenerate roster and parse into JSON
+node scripts/populate-all-heroes.mjs
 npm run parse
 npm test
 
-```
+# 2. Sync master markdown files into the VitePress documentation routes
+Copy-Item "MLBB_Hero_Database.md" "docs/heroes.md" -Force
+Copy-Item "MLBB_Game_Data.md" "docs/game-data.md" -Force
 
-Start your documentation server locally:
-
-```powershell
+# 3. Test locally
 npm run docs:dev
 
 ```
 
-Open your browser to the local URL (e.g. `http://localhost:5173/mlbb-database/`). Verify search (`Ctrl + K`), navigation, and the interactive table. Press `Ctrl + C` in the terminal to stop the server when finished.
-
 ---
 
-## 8. GitHub Actions Deployment Setup
+## 6. Deployment to GitHub Pages
 
-Ensure `.github/workflows/deploy-pages.yml` contains:
-
-```yaml
-name: Deploy VitePress to GitHub Pages
-
-on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
-      - name: Install Dependencies
-        run: npm ci
-
-      - name: Parse Data & Validate
-        run: |
-          npm run parse
-          npm run test
-
-      - name: Build Documentation Site
-        run: npm run docs:build
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload Pages Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: docs/.vitepress/dist
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-```
-
----
-
-## 9. Initialize Git & Push to Main
-
-Run these commands inside your project folder:
+Deploying requires committing changes to `main` and pushing upstream:
 
 ```powershell
-git init
-git config user.name "Your Name"
-git config user.email "your_email@example.com"
+# 1. Stage and commit changes
 git add .
-git commit -m "feat: complete database with patch 2.1.95a, parser, and vitepress docs"
-git branch -M main
-git remote add origin [https://github.com/phuchungbhutia/mlbb-database.git](https://github.com/phuchungbhutia/mlbb-database.git)
-git push -u origin main
+git commit -m "feat: synchronize database updates for patch 2.1.95a"
+
+# 2. Push to GitHub
+git push origin main
+
+# 3. Monitor the deployment workflow live
+gh run watch
+
 ```
 
----
+Once the workflow finishes, verify the live deployment at:
 
-## 10. Enable GitHub Pages
-
-1. Navigate to your repository in your browser:
-
-```powershell
-gh browse
+```text
+[https://phuchungbhutia.github.io/mlbb-database/](https://phuchungbhutia.github.io/mlbb-database/)
 ```
-
-2. Click **Settings** $\rightarrow$ **Pages** (in the left sidebar).
-3. Under **Build and deployment** $\rightarrow$ **Source**, choose **GitHub Actions**.
-4. Click the **Actions** tab to watch the workflow build and publish. Once complete, your live site is accessible at:
-   `https://phuchungbhutia.github.io/mlbb-database/`
