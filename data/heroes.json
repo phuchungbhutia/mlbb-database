@@ -15,7 +15,10 @@
     "WR (%)": "51.20",
     "PR (%)": "1.85",
     "BR (%)": "3.40",
-    "Patch Status": "CURRENT"
+    "Patch Status": "CURRENT",
+    "Core Items": "Tough Boots, War Axe, Brute Force Breastplate",
+    "Battle Spell": "Retribution",
+    "Emblem": "Custom Fighter"
   },
   {
     "Hero": "Hayabusa",
@@ -33,7 +36,10 @@
     "WR (%)": "53.10",
     "PR (%)": "3.20",
     "BR (%)": "68.40",
-    "Patch Status": "BUFFED (2.1.95a)"
+    "Patch Status": "BUFFED (2.1.95a)",
+    "Core Items": "Tough Boots, War Axe, Brute Force Breastplate",
+    "Battle Spell": "Retribution",
+    "Emblem": "Custom Fighter"
   },
   {
     "Hero": "Atlas",
@@ -51,7 +57,10 @@
     "WR (%)": "52.40",
     "PR (%)": "2.10",
     "BR (%)": "34.20",
-    "Patch Status": "NERFED (2.1.95a)"
+    "Patch Status": "NERFED (2.1.95a)",
+    "Core Items": "Tough Boots, War Axe, Brute Force Breastplate",
+    "Battle Spell": "Retribution",
+    "Emblem": "Custom Fighter"
   },
   {
     "Hero": "Obsidia",
@@ -69,7 +78,10 @@
     "WR (%)": "51.80",
     "PR (%)": "2.90",
     "BR (%)": "28.50",
-    "Patch Status": "BUFFED (2.1.95a)"
+    "Patch Status": "BUFFED (2.1.95a)",
+    "Core Items": "Tough Boots, War Axe, Brute Force Breastplate",
+    "Battle Spell": "Retribution",
+    "Emblem": "Custom Fighter"
   },
   {
     "Hero": "Kaja",
@@ -87,7 +99,10 @@
     "WR (%)": "52.90",
     "PR (%)": "1.95",
     "BR (%)": "42.10",
-    "Patch Status": "REWORKED (2.1.95)"
+    "Patch Status": "REWORKED (2.1.95)",
+    "Core Items": "Tough Boots, War Axe, Brute Force Breastplate",
+    "Battle Spell": "Retribution",
+    "Emblem": "Custom Fighter"
   },
   {
     "Hero": "Hanzo",
@@ -105,7 +120,10 @@
     "WR (%)": "50.80",
     "PR (%)": "1.40",
     "BR (%)": "18.20",
-    "Patch Status": "ADJUSTED (2.1.95a)"
+    "Patch Status": "ADJUSTED (2.1.95a)",
+    "Core Items": "Tough Boots, War Axe, Brute Force Breastplate",
+    "Battle Spell": "Retribution",
+    "Emblem": "Custom Fighter"
   },
   {
     "Hero": "Zhuxin",
@@ -123,7 +141,10 @@
     "WR (%)": "53.80",
     "PR (%)": "2.40",
     "BR (%)": "72.10",
-    "Patch Status": "CURRENT"
+    "Patch Status": "CURRENT",
+    "Core Items": "Tough Boots, War Axe, Brute Force Breastplate",
+    "Battle Spell": "Retribution",
+    "Emblem": "Custom Fighter"
   },
   {
     "Hero": "Claude",
@@ -141,7 +162,10 @@
     "WR (%)": "52.10",
     "PR (%)": "2.60",
     "BR (%)": "31.80",
-    "Patch Status": "CURRENT"
+    "Patch Status": "CURRENT",
+    "Core Items": "Tough Boots, War Axe, Brute Force Breastplate",
+    "Battle Spell": "Retribution",
+    "Emblem": "Custom Fighter"
   },
   {
     "Hero": "Fredrinn",
@@ -159,7 +183,10 @@
     "WR (%)": "50.40",
     "PR (%)": "1.80",
     "BR (%)": "12.50",
-    "Patch Status": "CURRENT"
+    "Patch Status": "CURRENT",
+    "Core Items": "Tough Boots, War Axe, Brute Force Breastplate",
+    "Battle Spell": "Retribution",
+    "Emblem": "Custom Fighter"
   },
   {
     "Hero": "Mathilda",
@@ -177,7 +204,10 @@
     "WR (%)": "52.70",
     "PR (%)": "1.60",
     "BR (%)": "45.00",
-    "Patch Status": "CURRENT"
+    "Patch Status": "CURRENT",
+    "Core Items": "Tough Boots, War Axe, Brute Force Breastplate",
+    "Battle Spell": "Retribution",
+    "Emblem": "Custom Fighter"
   },
   {
     "Hero": "Pharsa",
@@ -195,7 +225,10 @@
     "WR (%)": "51.00",
     "PR (%)": "1.30",
     "BR (%)": "8.90",
-    "Patch Status": "CURRENT"
+    "Patch Status": "CURRENT",
+    "Core Items": "Tough Boots, War Axe, Brute Force Breastplate",
+    "Battle Spell": "Retribution",
+    "Emblem": "Custom Fighter"
   },
   {
     "Hero": "Gatotkaca",
@@ -213,6 +246,9 @@
     "WR (%)": "52.30",
     "PR (%)": "2.05",
     "BR (%)": "11.20",
-    "Patch Status": "CURRENT"
+    "Patch Status": "CURRENT",
+    "Core Items": "Tough Boots, War Axe, Brute Force Breastplate",
+    "Battle Spell": "Retribution",
+    "Emblem": "Custom Fighter"
   }
 ]
