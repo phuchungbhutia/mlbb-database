@@ -7,9 +7,10 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Hero Index', link: '/heroes' },
-      { text: 'Game Data & Items', link: '/game-data' },
-      { text: 'Build Explorer', link: '/explorer' }
+      { text: 'Hero Profiles', link: '/heroes' },
+      { text: 'Equipment & Mechanics', link: '/game-data' },
+      { text: 'Interactive Explorer', link: '/explorer' },
+      { text: 'Update Database', link: '/update-database' }
     ],
     sidebar: [
       {
@@ -18,6 +19,7 @@ export default defineConfig({
           { text: 'Hero Profiles & Builds', link: '/heroes' },
           { text: 'Equipment & Mechanics', link: '/game-data' },
           { text: 'Interactive Explorer', link: '/explorer' }
+          { text: 'Update Database', link: '/update-database' }
         ]
       }
     ],
