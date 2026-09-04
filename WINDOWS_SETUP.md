@@ -1,4 +1,3 @@
-
 # Windows + VSCodium Complete Setup & Deployment Guide
 
 This guide walks you through the end-to-end process of setting up, validating, running locally, and deploying the **MLBB Database & Documentation Blog** using **Windows**, **PowerShell**, and **VSCodium**.
@@ -13,7 +12,6 @@ Open **PowerShell as Administrator** (`Win + X` $\rightarrow$ select **Terminal 
 winget install --id Git.Git -e
 winget install --id OpenJS.NodeJS.LTS -e
 winget install --id GitHub.cli -e
-
 ```
 
 > **Note:** Close and reopen your terminal after installation so path variables refresh.
@@ -25,7 +23,6 @@ git --version
 node -v
 npm -v
 gh --version
-
 ```
 
 ---
@@ -357,7 +354,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
 ```
 
 ---
@@ -375,7 +371,6 @@ git commit -m "feat: complete database with patch 2.1.95a, parser, and vitepress
 git branch -M main
 git remote add origin [https://github.com/phuchungbhutia/mlbb-database.git](https://github.com/phuchungbhutia/mlbb-database.git)
 git push -u origin main
-
 ```
 
 ---
@@ -386,14 +381,9 @@ git push -u origin main
 
 ```powershell
 gh browse
-
 ```
 
 2. Click **Settings** $\rightarrow$ **Pages** (in the left sidebar).
 3. Under **Build and deployment** $\rightarrow$ **Source**, choose **GitHub Actions**.
 4. Click the **Actions** tab to watch the workflow build and publish. Once complete, your live site is accessible at:
    `https://phuchungbhutia.github.io/mlbb-database/`
-
-```
-
-```
