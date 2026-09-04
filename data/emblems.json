@@ -1,0 +1,51 @@
+[
+  {
+    "Emblem ID": "emb_assassin",
+    "Emblem Class": "Custom Assassin",
+    "Base Attributes (Level 60)": "+16 Adaptive Penetration, +10 Adaptive Attack, +3% Movement Speed",
+    "Recommended Archetypes": "Assassins, Burst Marksmen, Skill Fighters",
+    "Primary Tactical Role": "Eliminating high-priority backline carries"
+  },
+  {
+    "Emblem ID": "emb_fighter",
+    "Emblem Class": "Custom Fighter",
+    "Base Attributes (Level 60)": "+10% Spell Vamp, +22 Adaptive Attack, +6 Hybrid Defense",
+    "Recommended Archetypes": "Sustained Bruisers, Brawlers, Melee Tanks",
+    "Primary Tactical Role": "Extended frontline skirmishes and objective fights"
+  },
+  {
+    "Emblem ID": "emb_mage",
+    "Emblem Class": "Custom Mage",
+    "Base Attributes (Level 60)": "+30 Magic Power, +5% CDR, +8 Magic Penetration",
+    "Recommended Archetypes": "Burst Mages, Artillery, Control Casters",
+    "Primary Tactical Role": "Wave clearing, long-range poke, teamfight burst"
+  },
+  {
+    "Emblem ID": "emb_tank",
+    "Emblem Class": "Custom Tank",
+    "Base Attributes (Level 60)": "+500 HP, +10 Hybrid Defense, +4 HP Regen",
+    "Recommended Archetypes": "Vanguards, Peelers, Initiators",
+    "Primary Tactical Role": "Soaking burst damage and locking down targets"
+  },
+  {
+    "Emblem ID": "emb_support",
+    "Emblem Class": "Custom Support",
+    "Base Attributes (Level 60)": "+12% Healing Effect, +10% CDR, +6% Movement Speed",
+    "Recommended Archetypes": "Enchanters, Healers, Utility Roamers",
+    "Primary Tactical Role": "Team sustain, map rotation, crowd control"
+  },
+  {
+    "Emblem ID": "emb_marksman",
+    "Emblem Class": "Custom Marksman",
+    "Base Attributes (Level 60)": "+5% Attack Speed, +5% Adaptive Attack, +5% Crit Chance",
+    "Recommended Archetypes": "Attack-Speed Carries, Crit Marksmen",
+    "Primary Tactical Role": "Sustained physical DPS and structure taking"
+  },
+  {
+    "Emblem ID": "emb_common",
+    "Emblem Class": "Custom Common",
+    "Base Attributes (Level 60)": "+500 HP, +12 Hybrid Regen, +22 Adaptive Attack",
+    "Recommended Archetypes": "Mana-hungry Bruisers, Early Laners",
+    "Primary Tactical Role": "Baseline lane sustain and resource efficiency"
+  }
+]

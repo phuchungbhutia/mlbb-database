@@ -1,0 +1,11 @@
+{
+  "name": "mlbb-database",
+  "version": "1.0.0",
+  "description": "Structured MLBB Hero and Game Mechanics Markdown Database",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/parse-markdown.mjs",
+    "test": "node scripts/validate-data.mjs"
+  },
+  "license": "MIT"
+}

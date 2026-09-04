@@ -1,0 +1,25 @@
+name: Build and Validate Data
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate JSON from Markdown
+        run: node scripts/parse-markdown.mjs
+
+      - name: Run Schema Validation
+        run: node scripts/validate-data.mjs

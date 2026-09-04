@@ -1,0 +1,263 @@
+[
+  {
+    "ID": "item_bod",
+    "Equipment": "Blade of Despair",
+    "Price": "3010",
+    "Primary Attributes": "+160 Physical Attack, +5% Movement Speed",
+    "Unique Passive / Active": "**Despair**: Attacking enemies below 50% HP grants +25% Physical Attack for 2s.",
+    "Best Roles": "Assassin, Marksman",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_dhs",
+    "Equipment": "Demon Hunter Sword",
+    "Price": "2180",
+    "Primary Attributes": "+35 Physical Attack, +25% Attack Speed",
+    "Unique Passive / Active": "**Devour**: Basic attacks deal 8% of target's Current HP as bonus Physical Damage; gains 3% Lifesteal per hit (up to 5 stacks).",
+    "Best Roles": "Marksman, Fighter",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_war_axe",
+    "Equipment": "War Axe",
+    "Price": "2100",
+    "Primary Attributes": "+25 Physical Attack, +550 HP, +10% CDR, +12% Spell Vamp",
+    "Unique Passive / Active": "**Fighting Spirit**: Dealing damage grants 12 Physical Attack and 2% extra Spell Vamp per second (up to 8 stacks). At max stacks, deals 10% True Damage.",
+    "Best Roles": "Fighter, Bruiser",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_hs",
+    "Equipment": "Hunter Strike",
+    "Price": "2010",
+    "Primary Attributes": "+80 Physical Attack, +10% CDR, +15 Flat Physical Pen",
+    "Unique Passive / Active": "**Retribution**: Dealing damage to a hero/creep 5 consecutive times grants 50% decaying Movement Speed for 3s (6s CD).",
+    "Best Roles": "Assassin, Fighter",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_eb",
+    "Equipment": "Endless Battle",
+    "Price": "2470",
+    "Primary Attributes": "+65 Physical Attack, +250 HP, +10% CDR, +8% Hybrid Lifesteal, +5% MS, +5 Mana Regen",
+    "Unique Passive / Active": "**Divine Justice**: Using a skill makes the next Basic Attack deal 60% of Physical Attack as True Damage (1.5s CD); grants 10% MS.",
+    "Best Roles": "Assassin, Fighter",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_mr",
+    "Equipment": "Malefic Roar",
+    "Price": "2060",
+    "Primary Attributes": "+60 Physical Attack, +20% Physical Penetration",
+    "Unique Passive / Active": "**Armor Buster**: Each point of enemy physical defense increases Physical Penetration by 0.1% (capped at 20% bonus, reaching 40% total).",
+    "Best Roles": "Marksman, Assassin",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_cs",
+    "Equipment": "Corrosion Scythe",
+    "Price": "2050",
+    "Primary Attributes": "+30 Physical Attack, +30% Attack Speed, +5% Movement Speed",
+    "Unique Passive / Active": "**Corrosion / Impulse**: Basic attacks deal 80 bonus physical damage, slow target by 8% (stacks up to 5 times), and grant +6% Attack Speed per hit.",
+    "Best Roles": "Marksman, Fighter",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_gs",
+    "Equipment": "Golden Staff",
+    "Price": "2000",
+    "Primary Attributes": "+55 Physical Attack, +15% Attack Speed",
+    "Unique Passive / Active": "**Swift / Endless Strike**: Converts each 1% Crit Chance into 1% Attack Speed. Every 2 basic attacks, the 3rd attack procs on-hit effects twice.",
+    "Best Roles": "Marksman",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_bfb",
+    "Equipment": "Brute Force Breastplate",
+    "Price": "2070",
+    "Primary Attributes": "+600 HP, +23 Physical Defense, +23 Magic Defense, +10% CDR",
+    "Unique Passive / Active": "**Brute Force**: Dealing damage grants 6 Physical/Magic Defense and 2% Movement Speed for 4s (stacks up to 4 times); grants 15% CC reduction at max stacks.",
+    "Best Roles": "Fighter, Tank, Assassin",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_won",
+    "Equipment": "Wind of Nature",
+    "Price": "1910",
+    "Primary Attributes": "+30 Physical Attack, +20% Attack Speed, +10% Physical Lifesteal",
+    "Unique Passive / Active": "**Wind Chant (Active)**: Grants complete immunity to all Physical Damage for 2s (1s for non-Marksmen; 70s CD).",
+    "Best Roles": "Marksman",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_sky",
+    "Equipment": "Sky Piercer",
+    "Price": "1500",
+    "Primary Attributes": "+60 Adaptive Attack, +15 Movement Speed",
+    "Unique Passive / Active": "**Lethality**: After dealing damage to an enemy hero below 4%–12% HP, immediately executes them. Each kill grants 10 stacks (up to 80); deaths lose 30% stacks.",
+    "Best Roles": "Assassin, Burst Carry",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_cod",
+    "Equipment": "Clock of Destiny",
+    "Price": "2050",
+    "Primary Attributes": "+45 Magic Power, +400 HP, +800 Mana",
+    "Unique Passive / Active": "**Destiny**: Grants 20 HP and 5 Magic Power every 20s (up to 15 stacks). At max stacks, grants an additional 5% Magic Power and 300 Max Mana.",
+    "Best Roles": "Mage",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_lt",
+    "Equipment": "Lightning Truncheon",
+    "Price": "2250",
+    "Primary Attributes": "+75 Magic Power, +400 Mana, +10% CDR",
+    "Unique Passive / Active": "**Resonate**: Every 6s, next skill deals 120% Magic Power bonus damage to up to 3 enemies, scaling with Max Mana.",
+    "Best Roles": "Mage",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_hc",
+    "Equipment": "Holy Crystal",
+    "Price": "2180",
+    "Primary Attributes": "+100 Magic Power",
+    "Unique Passive / Active": "**Mystery**: Increases total Magic Power by 21%–35% (scaling with hero level).",
+    "Best Roles": "Mage",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_dg",
+    "Equipment": "Divine Glaive",
+    "Price": "1970",
+    "Primary Attributes": "+60 Magic Power, +40% Magic Penetration",
+    "Unique Passive / Active": "**Spellbreaker**: Each point of enemy magic defense increases Magic Penetration by 0.1% (capped at 20% bonus).",
+    "Best Roles": "Mage, Burst",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_gw",
+    "Equipment": "Glowing Wand",
+    "Price": "2150",
+    "Primary Attributes": "+75 Magic Power, +400 HP, +5% Movement Speed",
+    "Unique Passive / Active": "**Scorch / Life Drain**: Skill damage burns targets for 1.5% Max HP magic damage per second for 3s, and reduces target shield and HP regen by 50% for 3s.",
+    "Best Roles": "Mage, Support",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_iqw",
+    "Equipment": "Ice Queen Wand",
+    "Price": "2240",
+    "Primary Attributes": "+75 Magic Power, +10% Spell Vamp, +300 Mana, +7% MS",
+    "Unique Passive / Active": "**Ice Bound**: Skills slow targets by 10% for 2s (stacks up to 3 times = 30% total slow).",
+    "Best Roles": "Mage, Support",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_et",
+    "Equipment": "Enchanted Talisman",
+    "Price": "1870",
+    "Primary Attributes": "+50 Magic Power, +250 HP, +20% CDR",
+    "Unique Passive / Active": "**Mana Spring / Max Stream**: Restores 15% Max Mana every 10s; increases maximum CDR ceiling by 5% (up to 45%).",
+    "Best Roles": "Mage, Support",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_foto",
+    "Equipment": "Flask of the Oasis",
+    "Price": "1850",
+    "Primary Attributes": "+60 Magic Power, +300 HP, +10% CDR, +12% Healing Effect",
+    "Unique Passive / Active": "**Blessing**: Triggering a heal/shield on an ally below 35% HP grants them a massive shield and 15% CD reduction on skills (40s CD).",
+    "Best Roles": "Support, Healer",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_wc",
+    "Equipment": "Winter Crown",
+    "Price": "2110",
+    "Primary Attributes": "+45 Adaptive Attack, +400 HP, +5% CDR",
+    "Unique Passive / Active": "**Frozen (Active)**: Freezes champion in place for 2s, becoming completely untargetable and immune to all damage (can buffer skills; 100s CD).",
+    "Best Roles": "All Roles",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_dom_ice",
+    "Equipment": "Dominance Ice",
+    "Price": "2010",
+    "Primary Attributes": "+500 Mana, +70 Physical Defense, +5% Movement Speed",
+    "Unique Passive / Active": "**Arctic Cold / Life Drain**: Reduces nearby enemies' Attack Speed by 70% of base and reduces their shield/healing reception by 50%.",
+    "Best Roles": "Tank, Support, Fighter",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_blade_arm",
+    "Equipment": "Blade Armor",
+    "Price": "1960",
+    "Primary Attributes": "+90 Physical Defense, +20% Crit Damage Reduction",
+    "Unique Passive / Active": "**Bladed Armor**: When struck by basic attacks, reflects 25% of incoming physical damage + 25% of user's Physical Defense back as Physical Damage; slows attacker by 15%.",
+    "Best Roles": "Tank",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_ath_shld",
+    "Equipment": "Athena's Shield",
+    "Price": "2050",
+    "Primary Attributes": "+900 HP, +62 Magic Defense, +2 HP Regen",
+    "Unique Passive / Active": "**Shield**: Taking Magic Damage grants a shield absorbing magic damage that reduces incoming Magic Damage by 25% for 3s (20s out-of-combat CD).",
+    "Best Roles": "Tank, All Roles",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_rad_arm",
+    "Equipment": "Radiant Armor",
+    "Price": "1880",
+    "Primary Attributes": "+950 HP, +40 Magic Defense, +12 HP Regen",
+    "Unique Passive / Active": "**Holy Blessing**: Taking Magic Damage increases Magic Damage Reduction by 6–18 for 3s (stacks up to 6 times), countering continuous magic ticks.",
+    "Best Roles": "Tank, Fighter",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_ant_cui",
+    "Equipment": "Antique Cuirass",
+    "Price": "2170",
+    "Primary Attributes": "+920 HP, +40 Physical Defense, +4 HP Regen",
+    "Unique Passive / Active": "**Deter**: Struck by skill damage reduces attacker's Physical Attack by 6% for 2s (stacks up to 3 times = 18% physical attack reduction).",
+    "Best Roles": "Tank, Fighter",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_oracle",
+    "Equipment": "Oracle",
+    "Price": "2060",
+    "Primary Attributes": "+850 HP, +25 Physical Defense, +25 Magic Defense, +10% CDR",
+    "Unique Passive / Active": "**Bless**: Increases all incoming shield effects and HP regeneration received by 30%.",
+    "Best Roles": "Tank, Fighter",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_immort",
+    "Equipment": "Immortality",
+    "Price": "2120",
+    "Primary Attributes": "+800 HP, +20 Physical Defense",
+    "Unique Passive / Active": "**Immortal**: Resurrects 2.5s after death with 16% Max HP and a 220–1200 shield lasting 3s (210s CD).",
+    "Best Roles": "All Roles",
+    "Status": "VERIFIED"
+  },
+  {
+    "ID": "item_thun_belt",
+    "Equipment": "Thunder Belt",
+    "Price": "1990",
+    "Primary Attributes": "+800 HP, +15 Physical Defense, +15 Magic Defense, +20 Movement Speed",
+    "Unique Passive / Active": "**Thunderbolt**: Basic attack every 4s deals 50 + 100% Total Hybrid Defense as True Damage, slowing enemies. Each hit grants permanent +1 Hybrid Defense. *(Nerfed in 2.1.95a: 50% stacking value for Marksman/Mage/Assassin)*.",
+    "Best Roles": "Tank, Fighter",
+    "Status": "ADJUSTED (2.1.95a)"
+  },
+  {
+    "ID": "item_queens_w",
+    "Equipment": "Queen's Wings",
+    "Price": "2250",
+    "Primary Attributes": "+40 Adaptive Attack, +600 HP, +10% CDR, +10% Spell Vamp",
+    "Unique Passive / Active": "**Demonize**: Dropping below 40% HP grants 30% damage reduction for 3s and grants 30% emergency Spell Vamp/Lifesteal (60s CD).",
+    "Best Roles": "Fighter",
+    "Status": "VERIFIED"
+  }
+]

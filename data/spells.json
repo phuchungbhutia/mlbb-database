@@ -1,0 +1,82 @@
+[
+  {
+    "Spell ID": "spell_retri",
+    "Spell Name": "Retribution",
+    "Cooldown": "35s",
+    "Exact Mechanical Effect": "Deals 2100–3040 True Damage to creeps/minions; grants jungler creep buffs. Upgrades to Ice/Flame/Bloody variants.",
+    "Best Suited Roles": "Jungler Only",
+    "Strategic Counter Function": "Mandatory for jungle camp contests"
+  },
+  {
+    "Spell ID": "spell_flicker",
+    "Spell Name": "Flicker",
+    "Cooldown": "120s",
+    "Exact Mechanical Effect": "Teleports champion a fixed distance in target direction; grants +5 Hybrid Defense for 1s.",
+    "Best Suited Roles": "Mage, Tank, Fighter, Marksman",
+    "Strategic Counter Function": "Repositioning, surprise engages, dodge"
+  },
+  {
+    "Spell ID": "spell_purify",
+    "Spell Name": "Purify",
+    "Cooldown": "90s",
+    "Exact Mechanical Effect": "Instantly removes all CC (except Suppression) and grants slow/CC immunity + 15% MS for 1.2s.",
+    "Best Suited Roles": "Marksman, Channeling Mages",
+    "Strategic Counter Function": "Counters Atlas, Tigreal, Guinevere"
+  },
+  {
+    "Spell ID": "spell_vengeance",
+    "Spell Name": "Vengeance",
+    "Cooldown": "75s",
+    "Exact Mechanical Effect": "Reduces incoming damage by 35% and reflects 35% of incoming damage back as Magic Damage for 3s.",
+    "Best Suited Roles": "Bruisers, Frontline Tanks",
+    "Strategic Counter Function": "Counters Claude ult, Miya, Kimmy"
+  },
+  {
+    "Spell ID": "spell_sprint",
+    "Spell Name": "Sprint",
+    "Cooldown": "100s",
+    "Exact Mechanical Effect": "Grants 50% decaying Movement Speed and complete immunity to all Slow effects for 6s.",
+    "Best Suited Roles": "Mages, Kiting Marksmen",
+    "Strategic Counter Function": "Counters Valir, Yve, Zhuxin slows"
+  },
+  {
+    "Spell ID": "spell_petrify",
+    "Spell Name": "Petrify",
+    "Cooldown": "90s",
+    "Exact Mechanical Effect": "Deals 100 Magic Damage and petrifies (solid stun) surrounding enemies for 0.8s; slows by 50% for 0.8s.",
+    "Best Suited Roles": "Initiator Tanks, Bruisers",
+    "Strategic Counter Function": "Chains CC on Atlas, Gatotkaca, Sun"
+  },
+  {
+    "Spell ID": "spell_flameshot",
+    "Spell Name": "Flameshot",
+    "Cooldown": "50s",
+    "Exact Mechanical Effect": "Fires a sniper shot dealing 160–640 Magic Damage (scales with distance); knocks back nearby enemies.",
+    "Best Suited Roles": "Mages, Healers",
+    "Strategic Counter Function": "Sniping runners; peeling melee divers"
+  },
+  {
+    "Spell ID": "spell_revitalize",
+    "Spell Name": "Revitalize",
+    "Cooldown": "100s",
+    "Exact Mechanical Effect": "Spawns a healing spring restoring 2.5% Max HP every 0.5s for 5s; increases healing received by 25%.",
+    "Best Suited Roles": "Frontline Tanks, Support Healers",
+    "Strategic Counter Function": "Counters prolonged attrition / choke brawls"
+  },
+  {
+    "Spell ID": "spell_aegis",
+    "Spell Name": "Aegis",
+    "Cooldown": "90s",
+    "Exact Mechanical Effect": "Grants a 750 (+50*Level) shield for 5s to user and 70% shield to the lowest HP nearby ally.",
+    "Best Suited Roles": "Gold Lane Marksman, Mid Laners",
+    "Strategic Counter Function": "Absorbs lethal burst outplays"
+  },
+  {
+    "Spell ID": "spell_inspire",
+    "Spell Name": "Inspire",
+    "Cooldown": "75s",
+    "Exact Mechanical Effect": "Next 8 basic attacks gain +400% Attack Speed, ignore physical defense, and restore HP on hit.",
+    "Best Suited Roles": "Marksmen, Sun, Zilong",
+    "Strategic Counter Function": "Melts structures and tanks instantly"
+  }
+]
