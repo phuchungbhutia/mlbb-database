@@ -1,4 +1,3 @@
-
 # ⚔️ Mobile Legends: Bang Bang (MLBB) Structured Database
 
 [![Live Documentation](https://img.shields.io/badge/Live_Site-GitHub_Pages-22c55e?style=for-the-badge&logo=githubpages&logoColor=white)](https://phuchungbhutia.github.io/mlbb-database/)
@@ -18,7 +17,7 @@
   Optimized for esports analysts, theorycrafters, AI/RAG knowledge retrieval, and web tools.
 </p>
 
-[🌐 Visit Live Searchable Database](https://phuchungbhutia.github.io/mlbb-database/) • [🪟 Windows + VSCodium Setup Guide](WINDOWS_SETUP.md) • [📊 Browse Data Files](data/)
+[🌐 Visit Live Searchable Database](https://phuchungbhutia.github.io/mlbb-database/) • [🪟 Windows Setup Guide](WINDOWS_SETUP.md) • [🔧 Troubleshooting Guide](TROUBLESHOOTING.md) • [📊 Data Files](data/)
 
 ---
 
@@ -34,12 +33,13 @@
 
 ---
 
-## 📂 Architecture & Contents
+## 📂 Repository Contents
 
-| File / Folder                                                                         | Function                                                                                             |
+| File / Link                                                                           | Description                                                                                          |
 | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | [🌐 **Live GitHub Pages Site**](https://phuchungbhutia.github.io/mlbb-database/) | Fast static documentation blog with local client-side instant search (`Ctrl + K`).                 |
 | [🪟 **`WINDOWS_SETUP.md`**](WINDOWS_SETUP.md)                                  | Step-by-step setup, dependency installation, local dev, and deployment on Windows.                   |
+| [🔧 **`TROUBLESHOOTING.md`**](TROUBLESHOOTING.md)                              | Resolution logs for branch mismatches, CI lockfile failures, Pages 404s, and YAML rendering.         |
 | [📜 **`MLBB_Hero_Database.md`**](MLBB_Hero_Database.md)                        | Hero master index, detailed kits, skill synergies, full builds, and matchups.                        |
 | [⚔️ **`MLBB_Game_Data.md`**](MLBB_Game_Data.md)                              | Complete equipment indices, passive triggers, emblem trees, battle spells, and patch archive.        |
 | [📁 **`data/`**](data/)                                                        | Machine-readable JSON files parsed from Markdown tables (`heroes.json`, `equipment.json`, etc.). |
@@ -49,7 +49,7 @@
 
 ## 🚀 Quick Execution (Windows + VSCodium)
 
-For detailed walkthroughs and troubleshooting, see the [Windows + VSCodium Guide](WINDOWS_SETUP.md).
+For detailed walkthroughs, refer to the [Windows Setup Guide](WINDOWS_SETUP.md). If you run into build or deployment errors, consult the [Troubleshooting Guide](TROUBLESHOOTING.md).
 
 ```powershell
 # 1. Clone repository
@@ -99,7 +99,7 @@ Generated in `data/heroes.json` from the master Markdown table:
 
 ## 🔄 Deployment Pipeline
 
-This repository deploys to GitHub Pages on every push to `main` via `.github/workflows/deploy-pages.yml`:
+This repository builds and deploys to GitHub Pages on every push to `main` via `.github/workflows/deploy-pages.yml`:
 
 ```
   Push to main
@@ -120,3 +120,5 @@ This repository deploys to GitHub Pages on every push to `main` via `.github/wor
 ## 🛡️ License
 
 Distributed under the [MIT License](https://www.google.com/search?q=LICENSE). Mobile Legends: Bang Bang is a registered trademark of Moonton Games.
+
+---
