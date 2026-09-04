@@ -65,10 +65,16 @@ npm test
 
 # 4. Run local blog search engine
 npm run docs:dev
+
 ```
-📊 Structured JSON Sample
-Generated in data/heroes.json from the master Markdown table:
-```
+
+---
+
+## 📊 Structured JSON Sample
+
+Generated in `data/heroes.json` from the master Markdown table:
+
+```json
 [
   {
     "Hero": "Balmond",
@@ -86,9 +92,15 @@ Generated in data/heroes.json from the master Markdown table:
     "Patch Status": "CURRENT"
   }
 ]
+
 ```
-🔄 Deployment Pipeline
-This repository deploys to GitHub Pages on every push to main via .github/workflows/deploy-pages.yml:
+
+---
+
+## 🔄 Deployment Pipeline
+
+This repository deploys to GitHub Pages on every push to `main` via `.github/workflows/deploy-pages.yml`:
+
 ```
   Push to main
        │
@@ -100,7 +112,11 @@ This repository deploys to GitHub Pages on every push to main via .github/workfl
        │
        ▼
   Deploy artifact to GitHub Pages CDN
-  ```
 
-🛡️ License
-Distributed under the [MIT License](LICENSE). Mobile Legends: Bang Bang is a registered trademark of Moonton Games.
+```
+
+---
+
+## 🛡️ License
+
+Distributed under the [MIT License](https://www.google.com/search?q=LICENSE). Mobile Legends: Bang Bang is a registered trademark of Moonton Games.

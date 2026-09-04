@@ -13,21 +13,76 @@ Open **PowerShell as Administrator** (`Win + X` $\rightarrow$ select **Terminal 
 winget install --id Git.Git -e
 winget install --id OpenJS.NodeJS.LTS -e
 winget install --id GitHub.cli -e
+
 ```
 
+> **Note:** Close and reopen your terminal after installation so path variables refresh.
 
-Note: Close and reopen your terminal after installation so path variables refresh.Verify each tool:PowerShellgit --version
+Verify each tool:
+
+```powershell
+git --version
 node -v
 npm -v
 gh --version
-2. GitHub CLI AuthenticationLink your local machine to your GitHub account:PowerShellgh auth login
-Follow the prompts:What account do you want to log into? $\rightarrow$ GitHub.comWhat is your preferred protocol for Git operations? $\rightarrow$ HTTPSAuthenticate Git with your GitHub credentials? $\rightarrow$ YesHow would you like to authenticate GitHub CLI? $\rightarrow$ Login with a web browserPress Enter to open your browser, and enter the one-time 8-character code shown in your console.3. Directory Setup & VSCodium LaunchNavigate to your working folder (e.g., Documents) and create your project workspace:PowerShellcd "$HOME\Documents"
+
+```
+
+---
+
+## 2. GitHub CLI Authentication
+
+Link your local machine to your GitHub account:
+
+```powershell
+gh auth login
+
+```
+
+Follow the prompts:
+
+1. **What account do you want to log into?** $\rightarrow$ `GitHub.com`
+2. **What is your preferred protocol for Git operations?** $\rightarrow$ `HTTPS`
+3. **Authenticate Git with your GitHub credentials?** $\rightarrow$ `Yes`
+4. **How would you like to authenticate GitHub CLI?** $\rightarrow$ `Login with a web browser`
+5. Press `Enter` to open your browser, and enter the one-time 8-character code shown in your console.
+
+---
+
+## 3. Directory Setup & VSCodium Launch
+
+Navigate to your working folder (e.g., `Documents`) and create your project workspace:
+
+```powershell
+cd "$HOME\Documents"
 mkdir mlbb-database
 cd mlbb-database
 codium .
-In VSCodium, press `Ctrl + `` (backtick) to open the integrated terminal. Run all subsequent commands inside this terminal.4. Scaffold Repository StructureExecute this script in your VSCodium terminal to create all folders and files:PowerShellNew-Item -ItemType Directory -Force -Path ".github/workflows", "scripts", "data", "docs/.vitepress"
+
+```
+
+*In VSCodium, press **`Ctrl + ``** (backtick) to open the integrated terminal. Run all subsequent commands inside this terminal.*
+
+---
+
+## 4. Scaffold Repository Structure
+
+Execute this script in your VSCodium terminal to create all folders and files:
+
+```powershell
+New-Item -ItemType Directory -Force -Path ".github/workflows", "scripts", "data", "docs/.vitepress"
 New-Item -ItemType File -Force -Path "MLBB_Hero_Database.md", "MLBB_Game_Data.md", "package.json", ".gitignore", "LICENSE", "README.md", "scripts/parse-markdown.mjs", "scripts/validate-data.mjs", ".github/workflows/deploy-pages.yml", "docs/.vitepress/config.mjs", "docs/index.md", "docs/explorer.md"
-5. File Configurationspackage.jsonJSON{
+
+```
+
+---
+
+## 5. File Configurations
+
+### `package.json`
+
+```json
+{
   "name": "mlbb-database",
   "version": "1.0.0",
   "description": "Structured MLBB Hero and Game Mechanics Markdown Database",
@@ -44,13 +99,25 @@ New-Item -ItemType File -Force -Path "MLBB_Hero_Database.md", "MLBB_Game_Data.md
   },
   "license": "MIT"
 }
-.gitignorePlaintextnode_modules/
+
+```
+
+### `.gitignore`
+
+```text
+node_modules/
 .DS_Store
 *.log
 dist/
 docs/.vitepress/dist
 docs/.vitepress/cache
-scripts/parse-markdown.mjsJavaScriptimport fs from 'node:fs';
+
+```
+
+### `scripts/parse-markdown.mjs`
+
+```javascript
+import fs from 'node:fs';
 import path from 'node:path';
 
 const OUT_DIR = './data';
@@ -114,7 +181,13 @@ const spells = parseMarkdownTable(gameMd, '## Battle Spell Database');
 fs.writeFileSync(path.join(OUT_DIR, 'spells.json'), JSON.stringify(spells, null, 2));
 
 console.log(`✔ Successfully generated JSON records in ${OUT_DIR}/`);
-scripts/validate-data.mjsJavaScriptimport fs from 'node:fs';
+
+```
+
+### `scripts/validate-data.mjs`
+
+```javascript
+import fs from 'node:fs';
 
 let errors = 0;
 
@@ -144,7 +217,13 @@ if (errors > 0) {
 } else {
   console.log('✔ All entity tests passed successfully.');
 }
-docs/.vitepress/config.mjsJavaScriptimport { defineConfig } from 'vitepress'
+
+```
+
+### `docs/.vitepress/config.mjs`
+
+```javascript
+import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   title: "MLBB Meta & Mechanics Database",
@@ -175,13 +254,57 @@ export default defineConfig({
     ]
   }
 })
-6. Copy Markdown Docs & Install VitePressCopy your primary markdown files into docs/ so VitePress compiles them:PowerShellCopy-Item "MLBB_Hero_Database.md" "docs/heroes.md"
+
+```
+
+---
+
+## 6. Copy Markdown Docs & Install VitePress
+
+Copy your primary markdown files into `docs/` so VitePress compiles them:
+
+```powershell
+Copy-Item "MLBB_Hero_Database.md" "docs/heroes.md"
 Copy-Item "MLBB_Game_Data.md" "docs/game-data.md"
-Install VitePress as a developer dependency:PowerShellnpm install -D vitepress
-7. Local Testing & VerificationRun the data parsing and validation engine:PowerShellnpm run parse
+
+```
+
+Install VitePress as a developer dependency:
+
+```powershell
+npm install -D vitepress
+
+```
+
+---
+
+## 7. Local Testing & Verification
+
+Run the data parsing and validation engine:
+
+```powershell
+npm run parse
 npm test
-Start your documentation server locally:PowerShellnpm run docs:dev
-Open your browser to the local URL (e.g. http://localhost:5173/mlbb-database/). Verify search (Ctrl + K), navigation, and the interactive table. Press Ctrl + C in the terminal to stop the server when finished.8. GitHub Actions Deployment SetupEnsure .github/workflows/deploy-pages.yml contains:YAMLname: Deploy VitePress to GitHub Pages
+
+```
+
+Start your documentation server locally:
+
+```powershell
+npm run docs:dev
+
+```
+
+Open your browser to the local URL (e.g. `http://localhost:5173/mlbb-database/`). Verify search (`Ctrl + K`), navigation, and the interactive table. Press `Ctrl + C` in the terminal to stop the server when finished.
+
+---
+
+## 8. GitHub Actions Deployment Setup
+
+Ensure `.github/workflows/deploy-pages.yml` contains:
+
+```yaml
+name: Deploy VitePress to GitHub Pages
 
 on:
   push:
@@ -234,7 +357,17 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-9. Initialize Git & Push to MainRun these commands inside your project folder:PowerShellgit init
+
+```
+
+---
+
+## 9. Initialize Git & Push to Main
+
+Run these commands inside your project folder:
+
+```powershell
+git init
 git config user.name "Your Name"
 git config user.email "your_email@example.com"
 git add .
@@ -243,6 +376,24 @@ git branch -M main
 git remote add origin [https://github.com/phuchungbhutia/mlbb-database.git](https://github.com/phuchungbhutia/mlbb-database.git)
 git push -u origin main
 
+```
 
-10. Enable GitHub PagesNavigate to your repository in your browser:PowerShellgh browse
-Click Settings $\rightarrow$ Pages (in the left sidebar).Under Build and deployment $\rightarrow$ Source, choose GitHub Actions.Click the Actions tab to watch the workflow build and publish. Once complete, your live site is accessible at:https://phuchungbhutia.github.io/mlbb-database/
+---
+
+## 10. Enable GitHub Pages
+
+1. Navigate to your repository in your browser:
+
+```powershell
+gh browse
+
+```
+
+2. Click **Settings** $\rightarrow$ **Pages** (in the left sidebar).
+3. Under **Build and deployment** $\rightarrow$ **Source**, choose **GitHub Actions**.
+4. Click the **Actions** tab to watch the workflow build and publish. Once complete, your live site is accessible at:
+   `https://phuchungbhutia.github.io/mlbb-database/`
+
+```
+
+```
