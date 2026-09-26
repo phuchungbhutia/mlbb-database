@@ -99,4 +99,4 @@ Every push to the `main` branch triggers an automated GitHub Actions deployment 
 
 ## 🛡️ License
 
-Distributed under the [MIT License](https://www.google.com/search?q=LICENSE). Mobile Legends: Bang Bang is a registered trademark of Moonton Games.
+Distributed under the [MIT License](LICENSE). Mobile Legends: Bang Bang is a registered trademark of Moonton Games.
